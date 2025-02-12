@@ -1,0 +1,95 @@
+.job-card {
+    background: #fff6f2;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 400px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 5% 10px;
+}
+
+.super-hot {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgb(218, 0, 0);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.super-hot svg {
+    margin-right: 5px;
+}
+
+.posted-time {
+    color: gray;
+    font-size: 14px;
+}
+
+.job-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.company {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.company img {
+    width: 40px;
+    height: 40px;
+}
+
+.company-name {
+    font-weight: bold;
+}
+
+.salary {
+    color: #007bff;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.location {
+    color: #555;
+    margin-top: 10px;
+}
+
+.tags {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.tags span {
+    background: #f1f1f1;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+.benefits {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.benefits div {
+    color: black;
+    margin: 5px 0;
+}
+
+.benefits div::before {
+    content: "•";
+    color: red;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+}

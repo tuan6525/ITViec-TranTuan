@@ -1,0 +1,216 @@
+.App-header {
+  background: linear-gradient(300deg, #790000 10%, #330000 20%, #000000 120%);
+  min-height: 38vh;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-size: 25px;
+}
+
+.top-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 11vh;
+  width: 100%;
+  padding: 0 30px;
+  border-bottom: solid 1px #8b8b8b;
+  z-index: 100;
+  background: linear-gradient(300deg, #790000 5%, #330000 15%, #000000 120%);
+}
+
+.left-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.left-controls .left {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  margin-right: 30px;
+}
+
+.left-controls .right {
+  color: #c7c3c3;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;z-index: 100;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: black;
+  min-width: 200px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 4px;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.icon-dropdown {
+  position: absolute;
+  right: 5px;
+  padding-top: 5px;
+}
+
+.sub-menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: black;
+  min-width: 200px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 4px;
+}
+
+.sub-dropdown {
+  width: 250px;
+}
+
+.sub-dropdown:hover .sub-menu {
+  display: block;
+  width: 230px;
+}
+
+.down {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #fff;
+  font-size: 18px;
+}
+
+.right-controls .link:hover {
+  text-decoration: underline;
+}
+
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.separator {
+  color: gray;
+}
+
+.bottom-menu {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  height: 27vh;
+  width: 100%;
+}
+
+/* Container của ô tìm kiếm */
+.search {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  position: absolute;
+  top: 20px;
+  padding: 5px;
+  width: 900px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown City */
+.address {
+  display: flex;
+  background: #fff;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 15px;
+  margin: 0 10px 0 0;
+  border-right: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
+}
+
+/* Ô nhập nội dung tìm kiếm */
+.content-search {
+  flex: 1;
+  padding: 12px;
+  margin: 0 10px 0 0;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Nút Search */
+.search button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e60012;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.search button:hover {
+  background: #cc000f;
+}
+
+/* Icon trong Dropdown & Search */
+.search ion-icon {
+  font-size: 18px;
+}
