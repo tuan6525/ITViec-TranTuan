@@ -18,14 +18,31 @@
 }
 
 .badge {
+    display: flex;
     position: absolute;
+    align-items: center;
+    height: 30px;
     top: 10px;
-    left: 10px;
-    background: #FF9800;
+    left: 0%;
+    background: #ff9119;
     color: white;
     padding: 5px 10px;
     font-weight: bold;
-    border-radius: 5px;
+    font-size: 14px;
+    border-radius: 4px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.badge::after {
+    content: "";
+    border-top: 8px solid #ff9119;
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    width: 0;
+    height: 0;
+    border-right: 8px solid transparent;
 }
 
 .banner-img {

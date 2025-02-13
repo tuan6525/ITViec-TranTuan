@@ -31,11 +31,12 @@
     gap: 7px;
     padding: 8px 12px;
     border-radius: 20px;
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
     border: 1px solid #ddd;
     background: #fff;
-    font-weight: 400;
+    font-weight: 500;
+    color: #414042;
 }
 
 .filter-button:hover {
@@ -58,4 +59,42 @@
 .filter-icon-button .icon {
     margin-right: 7px;
     padding: 2px 0 0 0;
+}
+
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-button {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.dropdown-menu-filter {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    top: 50px;
+    margin-top: 5px;
+    width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 100;
+}
+
+.dropdown-item-filter {
+    display: flex;
+    padding: 8px;
+    cursor: pointer;
+    gap: 3px;
+    font-size: 18px;
+}
+
+.dropdown-item-filter input {
+    margin-right: 8px;
+    width: 20px;
 }
