@@ -1,0 +1,108 @@
+/* Job Card Container */
+.job-card-detail {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 800px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    margin-right: 5%;
+}
+
+/* Header */
+.job-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.job-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.job-info {
+    flex-grow: 1;
+}
+
+.job-title {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.job-company {
+    color: gray;
+}
+
+/* Salary Section */
+.job-salary {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    color: #414042;
+    font-weight: bold;
+    cursor: pointer;
+    gap: 8px;
+}
+
+.job-salary span {
+    text-decoration: underline;
+}
+
+/* Apply Button */
+.apply-button-detail {
+    width: 100%;
+    background: #d32f2f;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.apply-button:hover {
+    background: #b71c1c;
+}
+
+/* Job Details */
+.job-details {
+    margin-top: 15px;
+    color: #555;
+}
+
+/* Skills */
+.job-skills {
+    margin-top: 15px;
+}
+
+.skill {
+    background: #f1f1f1;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+/* Reasons to Join */
+.job-reasons {
+    margin-top: 15px;
+}
+
+.job-reasons h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.job-reasons ul {
+    padding-left: 20px;
+    color: #333;
+}
+
+.job-reasons li {
+    margin-top: 5px;
+}

@@ -32,7 +32,7 @@ const Company = () => {
             </div>
 
             <div>
-                <div className="location">
+                <div className="location-company">
                     <div className="location-address">
                         <svg fill="none" height="16" viewBox="0 0 24 25" width="16" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_947_6633)">

@@ -22,7 +22,7 @@ const FilterPopup = ({ isOpen, onClose }) => {
               <label className="fw-bold">Level</label>
               <div className="d-flex flex-wrap gap-2">
                 {["Fresher", "Junior", "Senior", "Manager"].map((level) => (
-                  <span key={level} className="badge bg-light text-dark p-2">{level} +</span>
+                  <span key={level} className="bg-light text-dark p-2">{level} +</span>
                 ))}
               </div>
             </div>
@@ -32,7 +32,7 @@ const FilterPopup = ({ isOpen, onClose }) => {
               <label className="fw-bold">Working Model</label>
               <div className="d-flex flex-wrap gap-2">
                 {["At office", "Remote", "Hybrid"].map((model) => (
-                  <span key={model} className="badge bg-light text-dark p-2">{model} +</span>
+                  <span key={model} className="bg-light text-dark p-2">{model} +</span>
                 ))}
               </div>
             </div>

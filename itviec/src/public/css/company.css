@@ -61,8 +61,11 @@
 }
 
 .company img {
-    width: 38px;
-    height: 40px;
+    height: 50px;
+    width: 53px;
+    border: 1px solid #c5c5c5;
+    border-radius: 3px;
+    padding: 6px;
 }
 
 .company-name {
@@ -96,7 +99,7 @@
     text-decoration: underline;
 }
 
-.location {
+.location-company {
     color: #414042;
     margin-top: 10px;
     margin: 15px;
