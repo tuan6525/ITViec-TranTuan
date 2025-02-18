@@ -1,11 +1,48 @@
+
 .job-card {
     background: #fff2fc;
     border-radius: 8px;
-    width: 550px;
+    width: 515px;
     position: relative;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 0 5% 20px;
+    margin-right: 45px;
     padding: 5px;
+    height: 450px;
+}
+
+.job-card-click {
+    background: #fff2fc;
+    border-radius: 8px;
+    width: 515px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 45px;
+    padding: 5px;
+    border: 1px solid #ed1b2f;
+    height: 450px;
+}
+
+.job-card-click::before {
+    content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 6px;
+        margin: 8px 0;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        background-color: #ed1b2f;
+}
+
+.job-card-click::after {
+    content: "";
+        position: absolute;
+        right: -8px;
+        bottom: calc(50% - 8px);
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-left: 8px solid red;
 }
 
 .super-hot {
@@ -65,7 +102,7 @@
     width: 53px;
     border: 1px solid #c5c5c5;
     border-radius: 3px;
-    padding: 6px;
+    padding: 0 5px;
 }
 
 .company-name {
@@ -122,11 +159,16 @@
 }
 
 .tags span {
-    background: #f1f1f1;
+    background: #ffffff;
     padding: 5px 10px;
     border-radius: 15px;
     font-size: 12px;
+    font-weight: 500;
     border: 1px solid #b7b7b7;
+}
+
+.tags span:hover {
+    border: 1px solid #1f1f1f
 }
 
 .benefits {

@@ -78,9 +78,15 @@ const Home = () => {
                 </div>
             </div>
             <Filter />
-            <div className="list-company">
-                <Company />
-                <DetailCompany jobs={jobs}/>
+            <div className="content-job">
+                <div className="list-company">
+                    <Company />
+                    <Company />
+                    <Company />
+                    <Company />
+                    <Company />
+                </div>
+                <DetailCompany jobs={jobs} />
             </div>
         </>
     )

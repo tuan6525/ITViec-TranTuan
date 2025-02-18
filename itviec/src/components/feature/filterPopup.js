@@ -57,10 +57,10 @@ const FilterPopup = ({ isOpen, onClose }) => {
 
           {/* Footer */}
           <div className="modal-footer">
-            <button className="btn btn-link text-danger" onClick={() => alert("Reset filters")}>
+            <button className="reset-filter">
               Reset filter
             </button>
-            <button className="btn btn-danger">Apply</button>
+            <button className="btn-apply-filter">Apply</button>
           </div>
         </div>
       </div>

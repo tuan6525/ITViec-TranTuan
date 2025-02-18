@@ -1,12 +1,13 @@
 /* Job Card Container */
 .job-card-detail {
+    position: sticky;
     background: white;
     border-radius: 10px;
     padding: 20px;
     width: 800px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ddd;
-    margin-right: 5%;
+    height: 600px;
+    top: 88px;
 }
 
 /* Header */
@@ -16,14 +17,24 @@
     gap: 15px;
 }
 
-.job-logo {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
+.job-header img {
+    width: 90px;
+    height: 90px;
+    border: 1px solid #c5c5c5;
+    border-radius: 3px;
+    padding: 0 5px;
 }
 
 .job-info {
     flex-grow: 1;
+}
+
+.job-info span {
+    font-size: 18px;
+}
+
+.job-info span:hover {
+    text-decoration: underline;
 }
 
 .job-title {
@@ -35,7 +46,9 @@
 }
 
 .job-company {
-    color: gray;
+    font-size: 21px;
+    font-weight: 500;
+    color: #5c5c5c;
 }
 
 /* Salary Section */
@@ -50,23 +63,68 @@
 }
 
 .job-salary span {
+    color: #414042;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    padding-bottom: 2px;
     text-decoration: underline;
 }
 
+.btn-icon {
+    display: flex;
+    align-items: center;
+}
+
 /* Apply Button */
-.apply-button-detail {
+.apply-button {
     width: 100%;
-    background: #d32f2f;
+    background: #ed3535;
     color: white;
     padding: 10px;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 17px;
+    font-weight: bold;
     cursor: pointer;
 }
 
 .apply-button:hover {
-    background: #b71c1c;
+    background: #d32121;
+}
+
+/* Icon heart */
+.icon-heart {
+    margin-left: 20px;
+    width: 30px;
+    height: 30px;
+}
+
+.underline {
+    margin-top: 20px;
+    width: 100%;
+    border-bottom: 1px solid rgb(203, 203, 200);
+}
+
+.content-scroll {
+    margin-right: -20px;
+    overflow-y: scroll;
+    height: 383px;
+}
+
+.content-scroll::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.content-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Màu nền */
+    border-radius: 10px; /* Bo góc */
+}
+
+.content-scroll::-webkit-scrollbar-thumb {
+    background: #808080;
+    border-radius: 10px;
 }
 
 /* Job Details */
@@ -75,17 +133,37 @@
     color: #555;
 }
 
+.location-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.location-info span {
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
 /* Skills */
 .job-skills {
-    margin-top: 15px;
+    margin-top: 15px
+}
+
+.name-skill {
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 15px;
 }
 
 .skill {
-    background: #f1f1f1;
+    background: #ffffff;
     padding: 5px 10px;
     margin-right: 5px;
     border-radius: 15px;
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid #c5c5c5;
 }
 
 /* Reasons to Join */

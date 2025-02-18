@@ -67,29 +67,30 @@ const Filter = () => {
                 {isOpenSalary && (
                     <div className="salary-filter">
                         <span className="salary-text">{minSalary}$ - {maxSalary}$</span>
+                        <div className="range-track"></div>
                         <div className="slider-container">
                             {/* Thanh kéo min */}
                             <input
                                 type="range"
                                 min="500"
                                 max="10000"
-                                step="100"
+                                step="500"
                                 value={minSalary}
                                 onChange={handleMinChange}
-                                className="range-slider"
+                                className="range-slider min"
                             />
                             {/* Thanh kéo max */}
                             <input
                                 type="range"
                                 min="500"
                                 max="10000"
-                                step="100"
+                                step="500"
                                 value={maxSalary}
                                 onChange={handleMaxChange}
-                                className="range-slider"
+                                className="range-slider max"
                             />
                         </div>
-                        <button className="apply-button">Apply</button>
+                        <button className="apply-button-salary">Apply</button>
                     </div>
                 )}
                 <button className="filter-button">Industry <ion-icon name="chevron-down-outline"></ion-icon></button>

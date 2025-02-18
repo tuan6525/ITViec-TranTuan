@@ -1,0 +1,25 @@
+.reset-filter {
+    position: absolute;
+    border: none;
+    color: rgb(0, 0, 255);
+    background: #fff;
+    font-weight: 500;
+    font-size: 17px;
+    left: 20px;
+}
+
+.reset-filter:hover {
+    color: rgb(35, 35, 160);
+}
+
+.btn-apply-filter {
+    border: 1px solid #ed3535;
+    background: #ed3535;
+    width: 180px;
+    margin: 10px 25px 10px 10px;
+    height: 44px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+}
