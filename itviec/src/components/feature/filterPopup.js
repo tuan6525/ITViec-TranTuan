@@ -16,11 +16,11 @@ const FilterPopup = ({ isOpen, onClose }) => {
           </div>
 
           {/* Body */}
-          <div className="modal-body">
+          <div className="modal-body" style={{ maxHeight: "60vh", overflowY: "auto", paddingRight: "10px" }}>
             {/* Level */}
             <div className="mb-3">
               <label className="fw-bold">Level</label>
-              <div className="d-flex flex-wrap gap-2">
+              <div className="d-flex flex-wrap gap-2 job-level">
                 {["Fresher", "Junior", "Senior", "Manager"].map((level) => (
                   <span key={level} className="bg-light text-dark p-2">{level} +</span>
                 ))}
@@ -30,7 +30,7 @@ const FilterPopup = ({ isOpen, onClose }) => {
             {/* Working Model */}
             <div className="mb-3">
               <label className="fw-bold">Working Model</label>
-              <div className="d-flex flex-wrap gap-2">
+              <div className="d-flex flex-wrap gap-2 job-level">
                 {["At office", "Remote", "Hybrid"].map((model) => (
                   <span key={model} className="bg-light text-dark p-2">{model} +</span>
                 ))}
@@ -47,14 +47,57 @@ const FilterPopup = ({ isOpen, onClose }) => {
             {/* Industry */}
             <div className="mb-3">
               <label className="fw-bold">Industry</label>
-              <input type="text" className="form-control" placeholder="Search industry" />
-              <div className="form-check mt-2">
-                <input type="checkbox" className="form-check-input" id="industry1" />
-                <label className="form-check-label" htmlFor="industry1">Consumer Goods</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Search industry"
+              />
+              <div className="border rounded p-2 mt-2" style={{ maxHeight: '150px', overflowY: 'auto' }}>
+                {[
+                  "Consumer Goods",
+                  "E-commerce",
+                  "Education and Training",
+                  "Banking",
+                  "Food & Beverage",
+                  "Game",
+                  "Government",
+                  "IT Hardware and Computing",
+                  "Non-Profit and Social Service",
+                  "Manufacturing and Engineering",
+                  "Media, Advertising and Entertainment",
+                  "Environment",
+                  "Pharmaceuticals",
+                  "Real Estate, Property and Construction",
+                  "Retail and Wholesale",
+                  "IT Services and IT Consulting",
+                  "Telecommunication",
+                  "Tourism & Hospitality Services",
+                  "Transportation, Logistics and Warehouse",
+                  "Cyber Security",
+                  "Trading and Commercial",
+                  "Network and Infrastructure"
+                ].map((industry, index) => (
+                  <div className="form-check" key={index}>
+                    <input type="checkbox" className="form-check-input" id={`industry${index}`} />
+                    <label className="form-check-label" htmlFor={`industry${index}`}>
+                      {industry}
+                    </label>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
+          
 
+            {/* Company Type */}
+            <div className="mb-3">
+                <label className="fw-bold">Company Type</label>
+                <div className="d-flex flex-wrap gap-3 job-level">
+                  {["IT Outsourcing", "IT Product", "Headhunt", "IT Service and IT Consulting", "Non-IT"].map((level) => (
+                    <span key={level} className="bg-light text-dark p-2">{level} +</span>
+                  ))}
+                </div>
+              </div>
+          </div>
           {/* Footer */}
           <div className="modal-footer">
             <button className="reset-filter">

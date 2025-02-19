@@ -1,8 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const Header = () => {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
+const Header = ({ data }) => {
+    const cities = ["All Cities", "Ho Chi Minh", "Ha Noi", "Da Nang", "Others"];
+
+    const [dataHeader, setDataHeader] = useState([]);
+    const [openDropdown, setOpenDropdown] = useState(null);
+    const [openSubMenu, setOpenSubMenu] = useState(null);
+
+    useEffect(() => {
+        if (data) {
+            setDataHeader(data);
+        }
+    }, [data]);
 
     return (
         <div className="App-header">
@@ -17,105 +26,43 @@ const Header = () => {
 
                     <div className="right">
                         <nav className="nav">
-                            {/* All Jobs */}
-                            <div 
-                                className="nav-item dropdown" 
-                                onMouseEnter={() => setIsDropdownOpen(true)} 
-                                onMouseLeave={() => setIsDropdownOpen(false)}
-                            >
-                                <span>All Jobs</span>
-                                <span className="down"><ion-icon name="chevron-down-outline"></ion-icon></span>
+                            {dataHeader[0]?.children?.map((item, index) => (
+                                <div
+                                    key={index}
+                                    className="nav-item dropdown"
+                                    onMouseEnter={() => setOpenDropdown(index)}
+                                    onMouseLeave={() => setOpenDropdown(null)}
+                                >
+                                    <span>{item.name}</span>
+                                    <span className="down"><ion-icon name="chevron-down-outline"></ion-icon></span>
 
-                                {isDropdownOpen && (
-                                    <ul className="dropdown-menu">
-                                        <li 
-                                            className="sub-dropdown" 
-                                            onMouseEnter={() => setIsSubMenuOpen(true)} 
-                                            onMouseLeave={() => setIsSubMenuOpen(false)}
-                                        >
-                                            <span>Jobs by Skill<ion-icon className="icon-dropdown" name="chevron-forward-outline"></ion-icon></span>
-                                            {isSubMenuOpen && (
-                                                <ul className="sub-menu">
-                                                    <li><span>Java</span></li>
-                                                    <li><span>PHP</span></li>
-                                                    <li><span>JavaScript</span></li>
-                                                    <li><span>HTML5</span></li>
-                                                    <li><span>SQL</span></li>
-                                                    <li><span>Python</span></li>
-                                                    <li><span>ReactJS</span></li>
-                                                </ul>
-                                            )}
-                                        </li>
-                                        <li><span>Jobs by Title<ion-icon className="icon-dropdown" name="chevron-forward-outline"></ion-icon></span></li>
-                                        <li><span>Jobs by Company<ion-icon className="icon-dropdown" name="chevron-forward-outline"></ion-icon></span></li>
-                                        <li><span>Jobs by City<ion-icon className="icon-dropdown" name="chevron-forward-outline"></ion-icon></span></li>
-                                    </ul>
-                                )}
-                            </div>
-                            
-                            {/* IT Companies */}
-                            <div 
-                                className="nav-item dropdown" 
-                                onMouseEnter={() => setIsDropdownOpen(true)} 
-                                onMouseLeave={() => setIsDropdownOpen(false)}
-                            >
-                                <span>IT Companies</span>
-                                <span className="down"><ion-icon name="chevron-down-outline"></ion-icon></span>
+                                    {openDropdown === index && (
+                                        <ul className="dropdown-menu">
+                                            {item?.children?.map((submenu, indexSub) => (
+                                                <li
+                                                    key={indexSub}
+                                                    className="sub-dropdown"
+                                                    onMouseEnter={() => setOpenSubMenu(indexSub)}
+                                                    onMouseLeave={() => setOpenSubMenu(null)}
+                                                >
+                                                    <span>
+                                                        {submenu.name}
+                                                        {submenu.children && <ion-icon className="icon-dropdown" name="chevron-forward-outline"></ion-icon>}
+                                                    </span>
 
-                                {isDropdownOpen && (
-                                    <ul className="dropdown-menu">
-                                        <li 
-                                            className="sub-dropdown" 
-                                            onMouseEnter={() => setIsSubMenuOpen(true)} 
-                                            onMouseLeave={() => setIsSubMenuOpen(false)}
-                                        >
-                                            <span>Vietnam Best IT Companies<ion-icon className="icon-dropdown" name="chevron-forward-outline"></ion-icon></span>
-                                            {isSubMenuOpen && (
-                                                <ul className="sub-menu">
-                                                    <li><span>Best IT Companies 2024</span></li>
-                                                    <li><span>Best IT Companies 2023</span></li>
-                                                    <li><span>Best IT Companies 2022</span></li>
-                                                    <li><span>Best IT Companies 2021</span></li>
-                                                    <li><span>Best IT Companies 2020</span></li>
-                                                    <li><span>Best IT Companies 2019</span></li>    
-                                                </ul>
-                                            )}
-                                        </li>
-                                        <li><span>Company Reviews<ion-icon className="icon-dropdown" name="chevron-forward-outline"></ion-icon></span></li>
-                                    </ul>
-                                )}
-                            </div>
-                            {/* Blog */}
-                            <div 
-                                className="nav-item dropdown" 
-                                onMouseEnter={() => setIsDropdownOpen(true)} 
-                                onMouseLeave={() => setIsDropdownOpen(false)}
-                            >
-                                <span>Blog</span>
-                                <span className="down"><ion-icon name="chevron-down-outline"></ion-icon></span>
-
-                                {isDropdownOpen && (
-                                    <ul className="dropdown-menu">
-                                        <li 
-                                            className="sub-dropdown" 
-                                            onMouseEnter={() => setIsSubMenuOpen(true)} 
-                                            onMouseLeave={() => setIsSubMenuOpen(false)}
-                                        >
-                                            <span>IT Salary Report<ion-icon className="icon-dropdown" name="chevron-forward-outline"></ion-icon></span>
-                                            {isSubMenuOpen && (
-                                                <ul className="sub-menu">
-                                                    <li><span>IT Salary Report 2024-2025</span></li>
-                                                    <li><span>IT Salary Report 2023-2024</span></li>
-                                                    <li><span>IT Salary Report 2022-2023</span></li> 
-                                                </ul>
-                                            )}
-                                        </li>
-                                        <li><span>IT Career</span></li>
-                                        <li><span>Applying & Career Up</span></li>
-                                        <li><span>IT Expertise</span></li>
-                                    </ul>
-                                )}
-                            </div>
+                                                    {openSubMenu === indexSub && submenu.children && (
+                                                        <ul className="sub-menu">
+                                                            {submenu.children.map((subSubMenu, indexSubSub) => (
+                                                                <li key={indexSubSub}><span>{subSubMenu.name}</span></li>
+                                                            ))}
+                                                        </ul>
+                                                    )}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </div>
+                            ))}
                         </nav>
                     </div>
                 </div>
@@ -136,10 +83,14 @@ const Header = () => {
             <div className="bottom-menu">
                 <div className="search">
                     {/* Dropdown City */}
-                    <div className="address">
-                        <ion-icon name="location-outline"></ion-icon>
-                        <span className="ml-2 font-semibold text-black">All Cities</span>
-                        <ion-icon name="chevron-down-outline"></ion-icon>
+                    <div className="address-box">
+                        <select className="address">
+                            <option>
+                                <ion-icon name="location-outline"></ion-icon>
+                                <span className="ml-2 font-semibold text-black">All Cities</span>
+                                <ion-icon name="chevron-down-outline"></ion-icon>
+                            </option>
+                        </select>
                     </div>
 
                     {/* Search Input */}

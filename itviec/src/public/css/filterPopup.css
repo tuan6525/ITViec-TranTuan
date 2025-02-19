@@ -23,3 +23,26 @@
     font-size: 17px;
     font-weight: 500;
 }
+
+.fw-bold {
+    font-size: 17px;
+}
+
+.job-level {
+    width: 70%;
+}
+
+.job-level span {
+    border: 1px solid #ddd;
+    border-radius: 22px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.job-level span:hover {
+    border: 1px solid #101010;
+}
