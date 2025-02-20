@@ -118,8 +118,8 @@
 }
 
 .content-scroll::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Màu nền */
-    border-radius: 10px; /* Bo góc */
+    background: #f1f1f1;
+    border-radius: 10px;
 }
 
 .content-scroll::-webkit-scrollbar-thumb {

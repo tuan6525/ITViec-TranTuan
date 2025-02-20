@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="App">
         <Header data={data}/>
-        <Home />
+        <Home data={data}/>
         <Footer />
     </div>
   );

@@ -1,17 +1,27 @@
 import React, { useEffect, useState } from "react";
 
 const Header = ({ data }) => {
-    const cities = ["All Cities", "Ho Chi Minh", "Ha Noi", "Da Nang", "Others"];
+    const [selectedOption, setSelectedOption] = useState("All Cities");
+    const [isOpen, setIsOpen] = useState(false);
 
+    
     const [dataHeader, setDataHeader] = useState([]);
     const [openDropdown, setOpenDropdown] = useState(null);
     const [openSubMenu, setOpenSubMenu] = useState(null);
-
+    
+    console.log("data[1]", dataHeader[1]?.children)
+    const options = dataHeader[1]?.children;
+    
     useEffect(() => {
         if (data) {
             setDataHeader(data);
         }
     }, [data]);
+
+    const handleSelect = (option) => {
+        setSelectedOption(option);
+        setIsOpen(false);
+    };
 
     return (
         <div className="App-header">
@@ -83,15 +93,27 @@ const Header = ({ data }) => {
             <div className="bottom-menu">
                 <div className="search">
                     {/* Dropdown City */}
-                    <div className="address-box">
-                        <select className="address">
-                            <option>
-                                <ion-icon name="location-outline"></ion-icon>
-                                <span className="ml-2 font-semibold text-black">All Cities</span>
-                                <ion-icon name="chevron-down-outline"></ion-icon>
-                            </option>
-                        </select>
+                    <div className="address" onClick={() => setIsOpen(!isOpen)}>
+                        <ion-icon name="location-outline"></ion-icon>
+                        <span className="ml-2 font-semibold text-black">{selectedOption}</span>
+                        <ion-icon name="chevron-down-outline"></ion-icon>
                     </div>
+
+                    {/* Danh sách option */}
+                    {isOpen && (
+                        <div className="dropdown-list">
+                            {options.map((option, index) => (
+                                <div
+                                    key={index}
+                                    className="dropdown-item"
+                                    onClick={() => handleSelect(option.address)}
+                                >
+                                    {option.address}
+                                </div>
+                            ))}
+                        </div>
+                    )}
+
 
                     {/* Search Input */}
                     <input

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FilterPopup from '../feature/filterPopup'
 
-const Filter = () => {
+const Filter = ({data}) => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-
+    const [dataFilter, setDataFilter] = useState([]);
     // Level
     const [isOpenLevel, setIsOpenLevel] = useState(false);
     const [selectedLevels, setSelectedLevels] = useState([]);
@@ -28,7 +28,7 @@ const Filter = () => {
 
     const handleMinChange = (e) => {
         const value = parseInt(e.target.value);
-        if (value < maxSalary - 100) setMinSalary(value); // Tránh trùng giá trị
+        if (value < maxSalary - 100) setMinSalary(value);
     };
 
     const handleMaxChange = (e) => {
@@ -40,9 +40,13 @@ const Filter = () => {
         setIsOpenSalary(!isOpenSalary);
         setIsOpenLevel(false);
     }
+
+    useEffect(() => {
+        setDataFilter(data[3]);
+    },[data]);
     return (
         <div className="job-filter-container">
-            <h2 className="job-count">988 IT jobs in Vietnam</h2>
+            <h2 className="job-count">{dataFilter?.allJobs} IT jobs in Vietnam</h2>
 
             {/* Hộp bộ lọc */}
             <div className="filter-box">

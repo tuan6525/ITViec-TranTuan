@@ -52,7 +52,7 @@ const FilterPopup = ({ isOpen, onClose }) => {
                 className="form-control"
                 placeholder="Search industry"
               />
-              <div className="border rounded p-2 mt-2" style={{ maxHeight: '150px', overflowY: 'auto' }}>
+              <div className="border rounded p-2 mt-2 industry-scroll">
                 {[
                   "Consumer Goods",
                   "E-commerce",
