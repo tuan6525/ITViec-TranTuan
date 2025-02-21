@@ -6,43 +6,6 @@ import DetailCompany from './detailCompany'
 const Home = ({ data }) => {
     const [companySpolight, setCompanySpolight] = useState([]);
 
-    const jobs = [
-        {
-            id: 1,
-            title: "C++ Developer",
-            company: "ARIS Vietnam",
-            location: "Ho Chi Minh",
-            salary: "Sign in to view salary",
-            skills: ["C++", "Embedded"],
-            type: "HOT",
-            details: {
-                logo: "https://upload.wikimedia.org/wikipedia/commons/2/24/ARIS_Logo.png",
-                topReasons: [
-                    "Salary review: 2 times; Bonus: Project, 13th month",
-                    "Company trip, Team building, Healthcare package",
-                    "Training course, Onsite in Japan",
-                ],
-            },
-        },
-        {
-            id: 2,
-            title: "Middle/Senior Backend Engineer (Java)",
-            company: "One Mount Group",
-            location: "Ha Noi",
-            salary: "Sign in to view salary",
-            skills: ["Java", "Spring Boot"],
-            type: "SUPER HOT",
-            details: {
-                logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/One_Mount_Group_logo.svg/1200px-One_Mount_Group_logo.svg.png",
-                topReasons: [
-                    "Attractive salary & bonuses",
-                    "Flexible working hours",
-                    "Onsite opportunities in Singapore",
-                ],
-            },
-        },
-    ];
-
     useEffect(() => {
         setCompanySpolight(data[2]?.children);
     }, [data]);
@@ -81,13 +44,9 @@ const Home = ({ data }) => {
             <Filter data={data}/>
             <div className="content-job">
                 <div className="list-company">
-                    <Company />
-                    <Company />
-                    <Company />
-                    <Company />
-                    <Company />
+                    <Company data={data}/>
                 </div>
-                <DetailCompany jobs={jobs} />
+                <DetailCompany />
             </div>
         </>
     )

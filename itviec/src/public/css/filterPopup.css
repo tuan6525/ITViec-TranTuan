@@ -53,5 +53,16 @@
 }
 
 .industry-scroll::-webkit-scrollbar {
-    width: 3px;
+    width: 5px;
+    height: 0;
+}
+
+.industry-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.industry-scroll::-webkit-scrollbar-thumb {
+    background: #b2b2b2;
+    border-radius: 10px;
 }

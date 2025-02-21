@@ -62,7 +62,7 @@
 }
 
 
-.dropdown-menu-filter {
+.dropdown-menu-filter-level {
     position: absolute;
     background: white;
     border: 1px solid #ccc;
@@ -71,7 +71,54 @@
     width: 200px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    z-index: 100;
+    z-index: 50;
+}
+
+.dropdown-menu-filter-working {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    top: 50px;
+    left: 105px;
+    margin-top: 5px;
+    width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 50;
+}
+
+.dropdown-menu-filter-industry {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    top: 50px;
+    left: 382px;
+    margin-top: 5px;
+    width: 350px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 50;
+    overflow-y: scroll;
+    height: 250px;
+}
+
+.dropdown-menu-filter-industry::-webkit-scrollbar {
+    width: 5px;
+    height: 0;
+}
+
+.dropdown-menu-filter-industry::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.dropdown-menu-filter-industry::-webkit-scrollbar-thumb {
+    background: #b2b2b2;
+    border-radius: 10px;
+}
+
+.dropdown-menu-filter-industry label {
+    font-size: 14px;
 }
 
 .dropdown-item-filter {
@@ -85,6 +132,12 @@
 .dropdown-item-filter input {
     margin-right: 8px;
     width: 20px;
+}
+
+.search-industry {
+    margin: 9px;
+    width: 95%;
+    padding: 4px;
 }
 
 /* Salary */

@@ -1,23 +1,58 @@
 import React, { useEffect, useState } from "react";
-import FilterPopup from '../feature/filterPopup'
+import FilterPopup from '../feature/filterPopup';
 
-const Filter = ({data}) => {
+const Filter = ({ data }) => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const [dataFilter, setDataFilter] = useState([]);
+    const [dataFilter, setDataFilter] = useState(null);
+
     // Level
     const [isOpenLevel, setIsOpenLevel] = useState(false);
     const [selectedLevels, setSelectedLevels] = useState([]);
 
-    const levels = ["Fresher", "Junior", "Senior", "Manager"];
-
     const toggleDropdownLevel = () => {
         setIsOpenLevel(!isOpenLevel);
         setIsOpenSalary(false);
-    }
+        setIsOpenWorkingModel(false);
+        setIsOpenIndustry(false);
+    };
 
-    const handleSelect = (level) => {
+    const handleSelectLevel = (level) => {
         setSelectedLevels((prev) =>
             prev.includes(level) ? prev.filter((item) => item !== level) : [...prev, level]
+        );
+    };
+
+    // Working Model
+    const [isOpenWorkingModel, setIsOpenWorkingModel] = useState(false);
+    const [selectedWorkingModels, setSelectedWorkingModels] = useState([]);
+
+    const toggleDropdownWorkingModel = () => {
+        setIsOpenWorkingModel(!isOpenWorkingModel);
+        setIsOpenLevel(false);
+        setIsOpenSalary(false);
+        setIsOpenIndustry(false);
+    };
+
+    const handleSelectWorkingModel = (model) => {
+        setSelectedWorkingModels((prev) =>
+            prev.includes(model) ? prev.filter((item) => item !== model) : [...prev, model]
+        );
+    };
+
+    // Industry
+    const [isOpenIndustry, setIsOpenIndustry] = useState(false);
+    const [selectedIndustries, setSelectedIndustries] = useState([]);
+
+    const toggleDropdownIndustry = () => {
+        setIsOpenIndustry(!isOpenIndustry);
+        setIsOpenLevel(false);
+        setIsOpenSalary(false);
+        setIsOpenWorkingModel(false);
+    };
+
+    const handleSelectIndustry = (industry) => {
+        setSelectedIndustries((prev) =>
+            prev.includes(industry) ? prev.filter((item) => item !== industry) : [...prev, industry]
         );
     };
 
@@ -39,41 +74,72 @@ const Filter = ({data}) => {
     const toggleDropdownSalary = () => {
         setIsOpenSalary(!isOpenSalary);
         setIsOpenLevel(false);
-    }
+        setIsOpenWorkingModel(false);
+        setIsOpenIndustry(false);
+    };
 
     useEffect(() => {
-        setDataFilter(data[3]);
-    },[data]);
+        const filterData = data.find(item => item.name === "filter");
+        setDataFilter(filterData);
+    }, [data]);
+
     return (
         <div className="job-filter-container">
             <h2 className="job-count">{dataFilter?.allJobs} IT jobs in Vietnam</h2>
 
             {/* Hộp bộ lọc */}
             <div className="filter-box">
-                <button className="filter-button" onClick={toggleDropdownLevel}>Level <ion-icon name="chevron-down-outline"></ion-icon></button>
-                {console.log(levels)}
-                {isOpenLevel && (
-                    <div className="dropdown-menu-filter">
-                        {levels.map((level) => (
-                            <label key={level} className="dropdown-item-filter">
-                                <input
-                                    type="checkbox"
-                                    checked={selectedLevels.includes(level)}
-                                    onChange={() => handleSelect(level)}
-                                />
-                                {level}
-                            </label>
-                        ))}
+                {/* Level Filter */}
+                <button className="filter-button" onClick={toggleDropdownLevel}>
+                    Level <ion-icon name="chevron-down-outline"></ion-icon>
+                </button>
+                {isOpenLevel && dataFilter && (
+                    <div className="dropdown-menu-filter-level">
+                        {dataFilter.nameFilter
+                            .find(filter => filter.name === "Level")
+                            ?.children.map((level) => (
+                                <label key={level.name} className="dropdown-item-filter">
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedLevels.includes(level.name)}
+                                        onChange={() => handleSelectLevel(level.name)}
+                                    />
+                                    {level.name}
+                                </label>
+                            ))}
                     </div>
                 )}
-                <button className="filter-button">Working Model <ion-icon name="chevron-down-outline"></ion-icon></button>
-                <button className="filter-button" onClick={toggleDropdownSalary}>Salary <ion-icon name="chevron-down-outline"></ion-icon></button>
+
+                {/* Working Model Filter */}
+                <button className="filter-button" onClick={toggleDropdownWorkingModel}>
+                    Working Model <ion-icon name="chevron-down-outline"></ion-icon>
+                </button>
+                {isOpenWorkingModel && dataFilter && (
+                    <div className="dropdown-menu-filter-working">
+                        {dataFilter.nameFilter
+                            .find(filter => filter.name === "Working Model")
+                            ?.children.map((model) => (
+                                <label key={model.name} className="dropdown-item-filter">
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedWorkingModels.includes(model.name)}
+                                        onChange={() => handleSelectWorkingModel(model.name)}
+                                    />
+                                    {model.name}
+                                </label>
+                            ))}
+                    </div>
+                )}
+
+                {/* Salary Filter */}
+                <button className="filter-button" onClick={toggleDropdownSalary}>
+                    Salary <ion-icon name="chevron-down-outline"></ion-icon>
+                </button>
                 {isOpenSalary && (
                     <div className="salary-filter">
                         <span className="salary-text">{minSalary}$ - {maxSalary}$</span>
                         <div className="range-track"></div>
                         <div className="slider-container">
-                            {/* Thanh kéo min */}
                             <input
                                 type="range"
                                 min="500"
@@ -83,7 +149,6 @@ const Filter = ({data}) => {
                                 onChange={handleMinChange}
                                 className="range-slider min"
                             />
-                            {/* Thanh kéo max */}
                             <input
                                 type="range"
                                 min="500"
@@ -97,13 +162,38 @@ const Filter = ({data}) => {
                         <button className="apply-button-salary">Apply</button>
                     </div>
                 )}
-                <button className="filter-button">Industry <ion-icon name="chevron-down-outline"></ion-icon></button>
 
-                {/* Nút Filter */}
+                {/* Industry Filter */}
+                <button className="filter-button" onClick={toggleDropdownIndustry}>
+                    Industry <ion-icon name="chevron-down-outline"></ion-icon>
+                </button>
+                {isOpenIndustry && dataFilter && (
+                    <div className="dropdown-menu-filter-industry">
+                        <input
+                            type="text"
+                            className="search-industry"
+                            placeholder="Search industry"
+                        />
+                        {dataFilter.nameFilter
+                            .find(filter => filter.name === "Industry")
+                            ?.children.map((industry) => (
+                                <label key={industry.name} className="dropdown-item-filter">
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedIndustries.includes(industry.name)}
+                                        onChange={() => handleSelectIndustry(industry.name)}
+                                    />
+                                    {industry.name}
+                                </label>
+                            ))}
+                    </div>
+                )}
+
+                {/* Filter Button */}
                 <button className="filter-icon-button" onClick={() => setIsPopupOpen(true)}>
                     <span className="icon"><ion-icon name="funnel-outline"></ion-icon></span>Filter
                 </button>
-                <FilterPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
+                <FilterPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} dataFilter={dataFilter}/>
             </div>
         </div>
     );
