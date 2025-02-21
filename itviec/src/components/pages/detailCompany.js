@@ -1,16 +1,16 @@
 import React from "react";
 
-const DetailCompany = () => {
+const DetailCompany = ({ infoDetail }) => {
     return (
         <div className="job-card-detail">
             {/* Header */}
             <div className="job-header">
-                <div className="company-img"><img alt="Shopee Vietnam Small Logo" className="border-radius-normal border-solid box-shadow-normal ls-is-cached lazyloaded" src="https://itviec.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBOUpMRGc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--39d48a02f976805620ddc50092a330d97a314636/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RW5KbGMybDZaVjkwYjE5bWFYUmJCMmxwYVdrPSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--c8c20c63b868249effdba9ba4f05aa0c5b77cab3/shopee-logo.png" /></div>
+                <div className="company-img"><img alt="Shopee Vietnam Small Logo" className="border-radius-normal border-solid box-shadow-normal ls-is-cached lazyloaded" src={infoDetail.logo} /></div>
                 <div className="job-info">
                     <h2 className="job-title">
-                        [SPX Express] Senior Product Operations
+                        {infoDetail.jobTitle}
                     </h2>
-                    <span className="job-company">Shopee</span>
+                    <span className="job-company">{infoDetail.companyName}</span>
                 </div>
             </div>
 
@@ -36,7 +36,7 @@ const DetailCompany = () => {
                 <div className="job-details">
                     <div className="location-info">
                         <ion-icon name="location-outline"></ion-icon>
-                        <span>Block B, Waseco Building, 10 Pho Quang Street, Tan Binh, Ho Chi Minh</span>
+                        <span>{infoDetail.address}</span>
                     </div>
                     <div className="location-info">
                         <svg fill="none" height="16" viewBox="0 0 24 25" width="16" xmlns="http://www.w3.org/2000/svg">
@@ -53,54 +53,66 @@ const DetailCompany = () => {
                                 </clipPath>
                             </defs>
                         </svg>
-                        <span>At office</span>
+                        <span>{infoDetail.workType}</span>
                     </div>
                     <div className="location-info">
                         <ion-icon name="time-outline"></ion-icon>
-                        <span>4 hours ago</span>
+                        <span>{infoDetail.postedTime} ago</span>
                     </div>
                 </div>
 
                 {/* Skills */}
                 <div className="job-skills">
                     <span className="name-skill">Skills:</span>
-                    <span className="skill">C++</span>
-                    <span className="skill">Embedded</span>
+                    {infoDetail?.tags.map((tag) => (
+                        <span className="skill">{tag.name}</span>
+                    ))}
                 </div>
 
                 {/* Reasons to Join */}
-                <div className="job-reasons">
-                    <h3>Top 3 reasons to join us</h3>
-                    <ul>
-                        <li>Salary review: 2 times; Bonus: Project, 13th month</li>
-                        <li>Company trip, Team building, Healthcare package</li>
-                        <li>Training course, Onsite in Japan</li>
-                        <li>Salary review: 2 times; Bonus: Project, 13th month</li>
-                        <li>Company trip, Team building, Healthcare package</li>
-                        <li>Training course, Onsite in Japan</li>
-                        <li>Salary review: 2 times; Bonus: Project, 13th month</li>
-                        <li>Company trip, Team building, Healthcare package</li>
-                        <li>Training course, Onsite in Japan</li>
-                        <li>Salary review: 2 times; Bonus: Project, 13th month</li>
-                        <li>Company trip, Team building, Healthcare package</li>
-                        <li>Training course, Onsite in Japan</li>
-                        <li>Salary review: 2 times; Bonus: Project, 13th month</li>
-                        <li>Company trip, Team building, Healthcare package</li>
-                        <li>Training course, Onsite in Japan</li>
-                        <li>Salary review: 2 times; Bonus: Project, 13th month</li>
-                        <li>Company trip, Team building, Healthcare package</li>
-                        <li>Training course, Onsite in Japan</li>
-                        <li>Salary review: 2 times; Bonus: Project, 13th month</li>
-                        <li>Company trip, Team building, Healthcare package</li>
-                        <li>Training course, Onsite in Japan</li>
-                        <li>Salary review: 2 times; Bonus: Project, 13th month</li>
-                        <li>Company trip, Team building, Healthcare package</li>
-                        <li>Training course, Onsite in Japan</li>
-                        <li>Salary review: 2 times; Bonus: Project, 13th month</li>
-                        <li>Company trip, Team building, Healthcare package</li>
-                        <li>Training course, Onsite in Japan</li>
-                    </ul>
-                </div>
+                {infoDetail?.jobReason &&
+                    <div className="job reasons">
+                        <h3>Top 3 reasons to join us</h3>
+                        <ul>
+                            {infoDetail?.jobReason.map((reason) => (
+                                <div>{reason.name}</div>
+                            ))}
+                        </ul>
+                    </div>
+                }
+                {/* Job description */}
+                {infoDetail?.jobDescription &&
+                    <div className="job description">
+                        <h3>Job description</h3>
+                        <span>
+                            {infoDetail?.jobDescription}
+                        </span>
+                    </div>
+                }
+
+                {/* Job why */}
+                {infoDetail?.jobReason &&
+                    <div className="job skill-ex">
+                        <h3>Your skills and experience</h3>
+                        <ul>
+                            {infoDetail?.jobSkill.map((skill) => (
+                                <div>{skill.name}</div>
+                            ))}
+                        </ul>
+                    </div>
+                }
+
+                {/* Job why */}
+                {infoDetail?.jobWhy &&
+                    <div className="job why">
+                        <h3>Why you'll love working here</h3>
+                        <ul>
+                            {infoDetail?.jobWhy.map((why) => (
+                                <div>{why.name}</div>
+                            ))}
+                        </ul>
+                    </div>
+                }
             </div>
         </div>
     );

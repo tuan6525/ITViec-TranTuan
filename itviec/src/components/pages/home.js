@@ -5,13 +5,19 @@ import DetailCompany from './detailCompany'
 
 const Home = ({ data }) => {
     const [companySpolight, setCompanySpolight] = useState([]);
+    const [detailCP, setDetailCP] = useState(null);
+
+    const handleSetDetail = (index) => {
+        setDetailCP(data[4].children[index]);
+    }
+    console.log("detailCP: ", detailCP);
 
     useEffect(() => {
         setCompanySpolight(data[2]?.children);
     }, [data]);
 
     return (
-        <>
+        <> 
             <div className="company-spotlight">
                 <div className="company-banner">
                     <span className="badge">Company Spotlight</span>
@@ -44,9 +50,9 @@ const Home = ({ data }) => {
             <Filter data={data}/>
             <div className="content-job">
                 <div className="list-company">
-                    <Company data={data}/>
+                    <Company data={data} detailCompany={handleSetDetail}/>
                 </div>
-                <DetailCompany />
+                {detailCP && <DetailCompany infoDetail={detailCP}/>}
             </div>
         </>
     )

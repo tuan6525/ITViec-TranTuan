@@ -41,6 +41,7 @@ const Footer = ({ data }) => {
                         <p><ion-icon name="call-outline"></ion-icon> {ct.location}: {ct.hotLine}</p>
                     ))}
                     <p><ion-icon name="mail-outline"></ion-icon> Email: {contact?.email}</p>
+                    <p><ion-icon name="paper-plane-outline"></ion-icon> {contact?.subContact}</p>
                 </div>
             </div>
             <hr />

@@ -1,9 +1,25 @@
+import { useState } from "react";
+
 const FilterPopup = ({ isOpen, onClose, dataFilter }) => {
   // Tìm danh mục phù hợp từ dataFilter.nameFilter
   const levels = dataFilter?.nameFilter?.find(item => item.name === "Level")?.children || [];
   const workingModels = dataFilter?.nameFilter?.find(item => item.name === "Working Model")?.children || [];
   const industries = dataFilter?.nameFilter?.find(item => item.name === "Industry")?.children || [];
   const companyTypes = dataFilter?.nameFilter?.find(item => item.name === "Company Type")?.children || [];
+
+  const [minSalary, setMinSalary] = useState(500);
+  const [maxSalary, setMaxSalary] = useState(10000);
+
+  const handleMinChange = (e) => {
+    const value = parseInt(e.target.value);
+    if (value < maxSalary - 100) setMinSalary(value);
+  };
+
+  const handleMaxChange = (e) => {
+    const value = parseInt(e.target.value);
+    if (value > minSalary + 100) setMaxSalary(value);
+  };
+
 
   return (
     <div className={`modal fade ${isOpen ? "show d-block" : "d-none"}`} tabIndex="-1"
@@ -39,10 +55,30 @@ const FilterPopup = ({ isOpen, onClose, dataFilter }) => {
             </div>
 
             {/* Salary */}
-            <div className="mb-3">
-              <label className="fw-bold">{dataFilter?.nameFilter[2]?.name}</label>
-              <input type="range" className="form-range" min="500" max="10000" />
-              <p>500$ - 10,000$</p>
+            <label className="fw-bold">{dataFilter?.nameFilter[2]?.name}</label>
+            <div className="mb-3 salary-popup">
+              <span className="salary-text-popup">{minSalary}$ - {maxSalary}$</span>
+              <div className="range-track-popup"></div>
+              <div className="slider-container-popup">
+                <input
+                  type="range"
+                  min="500"
+                  max="10000"
+                  step="500"
+                  value={minSalary}
+                  onChange={handleMinChange}
+                  className="range-slider-popup min"
+                />
+                <input
+                  type="range"
+                  min="500"
+                  max="10000"
+                  step="500"
+                  value={maxSalary}
+                  onChange={handleMaxChange}
+                  className="range-slider-popup max"
+                />
+              </div>
             </div>
 
             {/* Industry */}

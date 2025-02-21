@@ -3,9 +3,11 @@ import './public/css/home.css'
 import './public/css/footer.css'
 import './public/css/filter.css'
 import './public/css/company.css'
+import './public/css/pagination.css'
 import './public/css/detailCompany.css'
 import './public/css/filterPopup.css'
 import Header from './components/layout/header'
+import Pagination from './components/pages/pagination'
 import Home from './components/pages/home'
 import Footer from './components/layout/footer'
 import { useEffect, useState } from 'react'
@@ -30,6 +32,7 @@ function App() {
     <div className="App">
         <Header data={data}/>
         <Home data={data}/>
+        <Pagination totalPages={57} currentPage={1} onPageChange={(page) => console.log("Chuyển đến trang:", page)}/>
         <Footer data={data}/>
     </div>
   );

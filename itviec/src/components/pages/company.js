@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 
-const Company = ({ data }) => {
+const Company = ({ data, detailCompany}) => {
     const [listCompany, setListCompany] = useState([]);
     const [clickCompany, setClickCompany] = useState(null);
 
@@ -16,7 +16,10 @@ const Company = ({ data }) => {
                     <div
                         key={index}
                         className={`content-job`}
-                        onClick={() => setClickCompany(index)}
+                        onClick={() => {
+                            setClickCompany(index);
+                            detailCompany(index);
+                        }}
                     >
                         <div className={`job-card ${clickCompany === index ? "job-card-click" : ""}`}>
                             <div className={company.isHot === "SUPER HOT" ? "super-hot" : company.isHot === "HOT" ? "hot" : ""}>
@@ -31,7 +34,7 @@ const Company = ({ data }) => {
                             <div className="info-company">
                                 <p className="posted-time">Posted {company.postedTime} ago</p>
 
-                                <h2 className="job-title">{company.jobTitle}</h2>
+                                <h2 className="job-title-company">{company.jobTitle}</h2>
 
                                 <div className="company">
                                     <div className="logo-in-list"><img alt={company.companyName} className="border-radius-normal border-solid box-shadow-normal ls-is-cached lazyloaded" src={`${company?.logo}`} /></div>

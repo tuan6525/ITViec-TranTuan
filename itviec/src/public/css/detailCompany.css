@@ -18,11 +18,19 @@
 }
 
 .job-header img {
+    max-height: 90px;
+    max-width: 90px;
+    border-radius: 3px;
+}
+
+.company-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 90px;
     height: 90px;
     border: 1px solid #c5c5c5;
     border-radius: 3px;
-    padding: 0 5px;
 }
 
 .job-info {
@@ -38,11 +46,16 @@
 }
 
 .job-title {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
     display: flex;
     align-items: center;
     gap: 5px;
+    transition: .4s;
+}
+
+.job-title:hover {
+    color: #e90f0f;
 }
 
 .job-company {
@@ -167,20 +180,41 @@
 }
 
 /* Reasons to Join */
-.job-reasons {
-    margin-top: 15px;
+.job {
+    border-top: 1px dashed #808080;
+    margin-top: 20px ;
+    padding-top: 15px;
+    width: 98%;
 }
 
-.job-reasons h3 {
-    font-size: 18px;
+.job h3 {
+    font-size: 23px;
     font-weight: bold;
 }
 
-.job-reasons ul {
-    padding-left: 20px;
+.job ul {
+    padding-left: 0;
+    margin-top: 10px;
     color: #333;
 }
 
-.job-reasons li {
-    margin-top: 5px;
+.job div {
+    margin-top: 8px;
+    font-weight: 500;
+    font-size: 17px;
 }
+
+.job div::before {
+    content: "•";
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+    display: inline-block;
+    width: 1em;
+}
+
+.job.description span{
+    font-size: 17px;
+    font-weight: 500;
+}
+

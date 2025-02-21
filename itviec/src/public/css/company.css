@@ -3,10 +3,13 @@
     border-radius: 8px;
     width: 515px;
     position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-right: 45px;
     padding: 5px;
     height: auto;
+}
+
+.job-card:hover {
+    cursor: pointer;
 }
 
 .job-card-click {
@@ -14,7 +17,6 @@
     border-radius: 8px;
     width: 515px;
     position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-right: 45px;
     padding: 5px;
     border: 1px solid #ed1b2f;
@@ -103,7 +105,7 @@
     font-weight: 500;
 }
 
-.job-title {
+.job-title-company {
     font-size: 20px;
     font-weight: bold;
     margin: 10px 0;

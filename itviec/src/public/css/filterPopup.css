@@ -66,3 +66,55 @@
     background: #b2b2b2;
     border-radius: 10px;
 }
+
+.salary-popup {
+    display: flex;
+    gap: 5px;
+}
+
+.salary-text-popup {
+    color: #414042;
+    font-size: 16px;
+    font-weight: 500;
+    width: 150px;
+}
+
+.range-track-popup {
+    background: #1ea22d;
+    position: absolute;
+    width: 553px;
+    top: 234px;
+    margin-left: 15px;
+    left: 136px;
+    height: 6px;
+    border-radius: 6px;
+}
+
+.slider-container-popup {
+    position: relative;
+    width: 100%;
+    height: 40px;
+}
+
+.range-slider-popup {
+    position: absolute;
+    width: 90%;
+    top: 10px;
+    left: 0;
+    appearance: none;
+    background: transparent;
+    height: 5px;
+    pointer-events: none;
+    border-radius: 15px;
+}
+
+.range-slider-popup::-webkit-slider-thumb {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: rgb(255, 255, 255);
+    border-radius: 50%;
+    border: 1px solid #bbb;
+    cursor: pointer;
+    pointer-events: all;
+}

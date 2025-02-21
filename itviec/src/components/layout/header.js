@@ -4,14 +4,13 @@ const Header = ({ data }) => {
     const [selectedOption, setSelectedOption] = useState("All Cities");
     const [isOpen, setIsOpen] = useState(false);
 
-    
+
     const [dataHeader, setDataHeader] = useState([]);
     const [openDropdown, setOpenDropdown] = useState(null);
     const [openSubMenu, setOpenSubMenu] = useState(null);
-    
-    console.log("data[1]", dataHeader[1]?.children)
+
     const options = dataHeader[1]?.children;
-    
+
     useEffect(() => {
         if (data) {
             setDataHeader(data);
@@ -29,9 +28,7 @@ const Header = ({ data }) => {
                 {/* Left Controls */}
                 <div className="left-controls">
                     <div className="left">
-                        <div className="logo">
-                            <img className="logo-itviec" alt="logo-itviec" src="https://itviec.com/assets/logo-itviec-4492a2f2577a15a0a1d55444c21c0fa55810822b3b189fc689b450fb62ce0b5b.png" width="82" height="32" />
-                        </div>
+                        <img className="logo-itviec" alt="logo-itviec" src="https://itviec.com/assets/logo-itviec-4492a2f2577a15a0a1d55444c21c0fa55810822b3b189fc689b450fb62ce0b5b.png" width="82" height="32" />
                     </div>
 
                     <div className="right">
