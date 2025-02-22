@@ -27,7 +27,7 @@ const DetailCompany = ({ infoDetail }) => {
             {/* Apply Button */}
             <div className="btn-icon">
                 <button className="apply-button">Apply now</button>
-                <img className="icon-heart" src="/img/like.png" alt="icon-heart" />
+                <img className="icon-heart" src={`${process.env.PUBLIC_URL}/img/like.png`} alt="iconHeart" />
             </div>
             <div className="underline"></div>
 
