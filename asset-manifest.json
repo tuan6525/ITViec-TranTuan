@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/ITViec-TranTuan/static/css/main.f6146da2.css",
-    "main.js": "/ITViec-TranTuan/static/js/main.508d80ac.js",
+    "main.js": "/ITViec-TranTuan/static/js/main.52574e66.js",
     "index.html": "/ITViec-TranTuan/index.html",
     "main.f6146da2.css.map": "/ITViec-TranTuan/static/css/main.f6146da2.css.map",
-    "main.508d80ac.js.map": "/ITViec-TranTuan/static/js/main.508d80ac.js.map"
+    "main.52574e66.js.map": "/ITViec-TranTuan/static/js/main.52574e66.js.map"
   },
   "entrypoints": [
     "static/css/main.f6146da2.css",
-    "static/js/main.508d80ac.js"
+    "static/js/main.52574e66.js"
   ]
 }
